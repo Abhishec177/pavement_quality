@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <center>
+<div class="jumbotron" style="width:65%; margin-top:3%">
+    <div style="width:80%">
+    <img src="static/images/AIDoctor.png" width="50%" style="border-radius:20px;"><br><br>
+     <div class="content-section">
+
+       <form action="" method="POST">
+         {{ form.hidden_tag() }}
+         <fieldset class="form-group">
+            <legend class="border-bottom mb-4">REGISTER</legend>
+            <div class="form-group">
+              {{ form.name.label(class="form-control-label") }}
+              {{ form.name(class="form-control form-control-sm") }}
+            </div>
+            <div class="form-group">
+              {{ form.rollno.label(class="form-control-label") }}
+              {{ form.rollno(class="form-control form-control-sm") }}
+            </div>
+            <div class="form-group">
+              {{ form.password.label(class="form-control-label") }}
+              {{ form.password(class="form-control form-control-sm") }}
+            </div>
+            <div class="form-group">
+              {{ form.confirm_password.label(class="form-control-label") }}
+              {{ form.confirm_password(class="form-control form-control-sm") }}
+            </div>
+            <div class="form-group">
+              {{ form.hostel.label(class="form-control-label") }}
+              {{ form.hostel(class="form-control form-control-sm") }}
+            </div>
+            <div class="form-group">
+              {{ form.mess.label(class="form-control-label") }}
+              {{ form.mess(class="form-control form-control-sm") }}
+            </div>
+         </fieldset>
+         <div class="form-group">
+           {{ form.submit(class="btn btn-secondary btn-sm") }}
+         </div>
+       </form>
+       <div class="border-top pt-3">
+         <small class="text-muted">
+           Already have an account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
+           <br><br>
+         </small>
+       </div>
+     </div>
+     </div>
+     </div>
+
+     </center>
+</div>
+{% endblock content %}

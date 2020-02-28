@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <center>
+    <div class="jumbotron" style="width:65%; margin-top:3%">
+      <div style="width:80%">
+      <img src="static/images/AIDoctor.png" width="50%" style="border-radius:20px;"><br><br>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">LOG IN</legend>
+                <div class="form-group">
+                    {{ form.rollno.label(class="form-control-label") }}
+                    {% if form.rollno.errors %}
+                        {{ form.rollno(class="form-control form-control-sm is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.rollno(class="form-control form-control-sm") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-sm is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-sm") }}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.remember_me(class="form-check-input") }}
+                    {{ form.remember_me.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Register</a>
+            </small>
+        </div>
+    </div>
+    </div>
+    </center>
+    </div>
+{% endblock content %}
